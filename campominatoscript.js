@@ -10,6 +10,25 @@ var aiNumbersLength = 16;
 var aiNumbers = [];
 var userNumbers = [];
 
+
+
+var difficolta = -1;
+
+while (difficolta < 0 || difficolta > 2) {
+    difficolta = parseInt(prompt("Scegli una difficoltà tra 0 e 2"));
+
+    switch (difficolta) {
+        case 0:
+            break;
+        case 1:
+            maxNumber = 80;
+            break;
+        case 2:
+            maxNumber = 50;
+            break;
+    }
+}
+
 function askUserNumbers() {
     var userLenghtMax = maxNumber - minNumber - aiNumbersLength;
 
@@ -24,7 +43,7 @@ function askUserNumbers() {
         } else if (inputIsValid === "game over") {
             gameOver = true;
 
-            alert("Hai perso")
+            alert("Hai perso il tuo punteggio è " + " " +userNumbers.length )
 
 
 
@@ -33,11 +52,11 @@ function askUserNumbers() {
         }
 
         if (userNumbers.length === userLenghtMax) {
-            alert("HAI VINTO")
+            alert("Hai vinto il tuo punteggio è " + " " + userNumbers.length )
             gameOver = true;
         }
 
-    
+
     }
 }
 
@@ -83,7 +102,7 @@ function createAiNumbers() {
 }
 
 function generateRandomNumbers(min, max) {
-    return Math.floor(Math.random() * (max - min )) + min
+    return Math.floor(Math.random() * (max - min)) + min
 
 
 }
